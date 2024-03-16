@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js"
+  },
+  "author": "dy-xiaodong2022",
+  "license": "MIT"
+}
