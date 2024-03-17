@@ -5,19 +5,19 @@ import {
     Pressable
 } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import {Feather} from '@expo/vector-icons';
+import {FontAwesome5} from '@expo/vector-icons';
 
 export default function Topbar(props) {
     return (
         <View style={styles.container}>
-            {props.history && <FontAwesome5 name="history" size={20} color="#41C9E2" style={styles.left} />}
+            <Pressable style={styles.left} onPress={props.leftPress}>
+                {props.leftIcon}
+            </Pressable>
             <Text style={styles.title}>{props.title}</Text>
-            {props.post && (
-                    <Pressable style={styles.right} onPress={props.post}>
-                        <Feather name="plus-circle" size={22} color="#41C9E2"/>
-                    </Pressable>
-                )}
+            <Pressable style={styles.right} onPress={props.rightPress}>
+                {props.rightIcon}
+            </Pressable>
         </View>
     )
 }
@@ -43,11 +43,15 @@ const styles = StyleSheet.create({
         left: 15,
         top: 0,
         bottom: 0,
+        paddingRight: 10,
+        paddingLeft: 10,
     },
     right: {
         position: 'absolute',
         right: 15,
         top: 0,
         bottom: 0,
+        paddingRight: 10,
+        paddingLeft: 10,
     }
 })
