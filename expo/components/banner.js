@@ -3,24 +3,24 @@ import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Banner() {
+export default function Banner(props) {
     return (
         <View style={styles.container}>
             <Link href="/">
                 <View style={styles.icon}>
-                    <Icon name="home" size={30} color="gray" />
+                    <Icon name={props.active === "home" ? "home" : "home-outline"} size={30} color="gray" />
                     <Text style={styles.text}>Home</Text>
                 </View>
             </Link>
             <Link href="/ai">
                 <View style={styles.icon}>
-                    <Icon name="sparkles-sharp" size={30} color="#ffd700" />
+                    <Icon name={props.active === "ai" ? "sparkles-sharp" : "sparkles-outline"} size={30} color="#ffd700"/>
                     <Text style={styles.ai}>AI</Text>
                 </View>
             </Link>
             <Link href="/profile">
                 <View style={styles.icon}>
-                    <Icon name="person" size={30} color="gray" />
+                    <Icon name={props.active === "profile" ? "person" : "person-outline"} size={30} color="gray" />
                     <Text style={styles.text}>User</Text>
                 </View>
             </Link>
