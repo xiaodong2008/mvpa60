@@ -31,15 +31,15 @@ export default function Banner(props) {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 50,
-        borderTopWidth: 1,
+        height: 45,
         borderColor: 'gray',
         padding: 10,
         display: 'flex',
         flexDirection: 'row',
         position: 'absolute',
         justifyContent: 'space-around',
-        bottom: 0
+        bottom: 0,
+        backgroundColor: 'white',
     },
     icon: {
         width: 50,
