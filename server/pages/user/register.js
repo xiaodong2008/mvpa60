@@ -1,4 +1,4 @@
-const {db, login} = require('../database')
+const {db, login} = require('../../database')
 
 function register(r) {
     // method
