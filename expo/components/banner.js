@@ -1,9 +1,7 @@
-import 'primeicons/primeicons.css';
-
 import Icon from '@expo/vector-icons/Ionicons';
-import { Link, useLocalSearchParams } from 'expo-router';
-import { StyleSheet, Button, Text, View } from "react-native";
-import React, { useState, useEffect } from "react";
+import { Link } from 'expo-router';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 export default function Banner() {
     return (
@@ -20,7 +18,7 @@ export default function Banner() {
                     <Text style={styles.ai}>AI</Text>
                 </View>
             </Link>
-            <Link href="/login">
+            <Link href="/profile">
                 <View style={styles.icon}>
                     <Icon name="person" size={30} color="gray" />
                     <Text style={styles.text}>User</Text>
