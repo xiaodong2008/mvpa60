@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "fs-grand",
+    "name": "mvpa-go",
+    "scheme": "mvpago",
     "slug": "fs-grand",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.mvpago"
     },
     "web": {
       "favicon": "./assets/favicon.png"
