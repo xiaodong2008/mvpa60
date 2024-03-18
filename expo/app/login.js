@@ -7,15 +7,15 @@ import {
     Keyboard,
     TouchableWithoutFeedback,
     Image,
-    ActivityIndicator
+    ActivityIndicator,
 } from 'react-native';
-import {post} from '../api';
-import React, {useState, useEffect} from 'react';
-// import Icon from '@expo/vector-icons/Ionicons';
-import {Link} from 'expo-router';
+import React, {useState} from 'react';
 import {LinearGradient} from "expo-linear-gradient";
+import user from "../user";
 
-export default function Page() {
+import theme from "../theme";
+
+export default function Page(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,10 +24,12 @@ export default function Page() {
     const [loading, setLoading] = useState(false);
     const [mode, setMode] = useState("register");
 
+    // let session = useContext()
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
-                <Text style={styles.form.title}>Create a Account</Text>
+                <Text style={styles.form.title}>{mode === "register" ? "Create a Account" : "Login to your Account"}</Text>
                 <TextInput style={styles.input}
                            placeholder='Email'
                            placeholderTextColor={'rgba(231,231,231,0.81)'}
@@ -88,7 +90,7 @@ export default function Page() {
         if (mode === "register") {
             register(email, password);
         } else {
-            // login(email, password);
+            login(email, password);
         }
     }
 
@@ -96,12 +98,27 @@ export default function Page() {
         setAlert("");
         setMode(mode === "register" ? "login" : "register");
     }
-}
 
-function register(email, password) {
-    post("/user/register", {email, password}).then(res => {
-        console.log(res);
-    });
+    function register() {
+        user.register(email, password).then(res => {
+            setLoading(false);
+            props.success()
+        }).catch(err => {
+            setLoading(false);
+            setAlert(err.message);
+        })
+    }
+
+    function login() {
+        user.login(email, password).then(res => {
+            setLoading(false);
+            console.log(props.success)
+                props.success()
+        }).catch(err => {
+            setLoading(false);
+            setAlert(err.message);
+        })
+    }
 }
 
 function background() {
@@ -145,21 +162,7 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(255,255,255,0.29)',
         backgroundColor: 'rgba(255,255,255,0.29)',
         paddingLeft: 10,
-        // placeholderTextColor: 'rgba(255,255,255,0.29)',
-
     },
-    // btn: {
-    //     width: 300,
-    //     height: 36,
-    //     color: 'white',
-    //     backgroundColor: '#41C9E2',
-    //     fontSize: 14,
-    //     fontWeight: '700',
-    //     borderRadius: 8,
-    //     overflow: 'hidden',
-    //     textAlign: 'center',
-    //     lineHeight: 36,
-    // },
     btn: {
         container: {
             width: 300,
@@ -168,7 +171,7 @@ const styles = StyleSheet.create({
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
-            backgroundColor: '#41C9E2',
+            backgroundColor: theme.color.primary,
         },
         text: {
             color: 'white',
@@ -200,11 +203,9 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 14,
         lineHeight: 20,
-        // width: 300,
-        // textAlign: 'right',
     },
     link: {
-        color: '#41C9E2',
+        color: theme.color.primary,
         fontWeight: 'bold',
         fontSize: 14,
         lineHeight: 26,
@@ -216,16 +217,12 @@ const styles = StyleSheet.create({
             position: 'absolute',
             width: '100%',
             height: '100%',
-            // opacity: 0.5,
             zIndex: -1,
         },
         image: {
             position: 'absolute',
-            // width: '100%',
-            // height: '100%',
             transform: [{scale: 1.6}],
             top: 100,
-            // left: -450,
             zIndex: 10,
         },
         hide: {
