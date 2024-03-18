@@ -5,14 +5,22 @@ import {
     Pressable
 } from 'react-native';
 
-import {Feather} from '@expo/vector-icons';
 import {FontAwesome5} from '@expo/vector-icons';
 
 export default function Topbar(props) {
+    const iconTemplate = {
+        "back": (
+            <View style={templateStyles.back.container}>
+                <FontAwesome5 name="angle-left" size={26} color="#41C9E2"/>
+                <Text style={templateStyles.back.text}>Back</Text>
+            </View>
+        )
+    }
+
     return (
         <View style={styles.container}>
             <Pressable style={styles.left} onPress={props.leftPress}>
-                {props.leftIcon}
+                {Object.keys(iconTemplate).includes(props.leftIcon) ? iconTemplate[props.leftIcon] : props.leftIcon}
             </Pressable>
             <Text style={styles.title}>{props.title}</Text>
             <Pressable style={styles.right} onPress={props.rightPress}>
@@ -22,36 +30,63 @@ export default function Topbar(props) {
     )
 }
 
+const templateStyles = {
+    back: {
+        container: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 6
+        },
+        text: {
+            fontSize: 16,
+            fontWeight: '600',
+            color: '#41C9E2'
+        }
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
-        height: 30,
+        height: 32,
         backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#e5e5e5',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
+        display: 'flex',
         position: 'relative'
     },
     title: {
+        display: 'flex',
         fontSize: 16,
         fontWeight: '600',
         textAlign: 'center',
-        width: '100%'
     },
     left: {
         position: 'absolute',
-        left: 15,
-        top: 0,
-        bottom: 0,
+        left: 0,
+        display: 'flex',
+        flexDirection: 'row',
         paddingRight: 10,
         paddingLeft: 10,
+        paddingTop: 2,
+        paddingBottom: 2,
+        marginLeft: 10,
+        zIndex: 99
     },
     right: {
         position: 'absolute',
-        right: 15,
-        top: 0,
-        bottom: 0,
+        right: 0,
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: 'auto',
         paddingRight: 10,
         paddingLeft: 10,
+        paddingTop: 2,
+        paddingBottom: 2,
+        marginRight: 10,
+        zIndex: 99
     }
 })
