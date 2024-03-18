@@ -1,42 +1,68 @@
-import { Text, StyleSheet, Button, View } from 'react-native';
-import { get } from '../api';
-import React, { useState, useEffect } from 'react';
-import { Link } from 'expo-router';
+import {
+    Text,
+    StyleSheet,
+    Button,
+    View,
+    Animated,
+    Dimensions, SafeAreaView, ScrollView,
+    // useWindowDimensions
+} from 'react-native';
+import React, {useState, useEffect, useContext} from 'react';
+import theme from "../theme";
 
+import {SessionContext} from "./_layout";
+import Login from './login';
 import Banner from '../components/banner';
+import Main from "./home/index";
+import Post from "./home/post";
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
 
 export default function Page() {
-    // wait to get title
-  const [title, setTitle] = useState("Loading...");
+    const session = useContext(SessionContext)
+    const [show, setShow] = useState(null);
+    // const [status, setStatus] = useState(false);
 
-  // get title from server
-  useEffect(() => {
-    getTitle();
-  }, []);
+    const loginWindow = new Animated.ValueXY({x: 0, y: Dimensions.get('window').height + 300});
 
-  function getTitle() {
-    get('/title').then(data => {
-      setTitle(data.title);
-    })
-  }
+    function setLoginWindow(show) {
+        // if (!status) return;
+        console.log('setLoginWindow', show)
+        // setStatus(show);
+        loginWindow.setValue({x: 0, y: show ? Dimensions.get('window').height + 300 : 0});
+        Animated.timing(loginWindow, {
+            toValue: {x: 0, y: !show ? Dimensions.get('window').height + 300 : 0},
+            duration: 1000,
+            useNativeDriver: false
+        }).start()
+    }
 
-  return (
-    <View style={styles.container}>
-      <Text>{title}</Text>
-      <Button title="Refresh" onPress={getTitle} />
-      {/* Switch to login page */}
-      <Link href="/login">Login</Link>
-        <Banner />
-    </View>
-  );
+    useEffect(() => {
+        console.log(session)
+        if (session.user === null) setLoginWindow(true);
+        else if (show === false && session.profile.nickname) setLoginWindow(false);
+    }, [show, session])
+
+    return (
+        <View style={theme.styles.pageRoot}>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Main" component={Main}/>
+                <Stack.Screen name="Login" component={Login}/>
+            </Stack.Navigator>
+            {/*<Animated.View style={[styles.login, loginWindow.getLayout()]}>*/}
+            {/*    <Login success={() => {*/}
+            {/*        setShow(false);*/}
+            {/*    }}/>*/}
+            {/*</Animated.View>*/}
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
+    login: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+    }
 });
