@@ -9,13 +9,7 @@ async function isLogin() {
 async function register(email, password) {
     console.log("register")
     const {data, error} = await db.auth.signUp({email, password})
-    console.log("1")
-
-    if (error) {
-        throw error;
-    } else {
-        console.log(data);
-    }
+    if (error) throw error;
 }
 
 async function login(email, password) {
