@@ -12,6 +12,12 @@ export default function Banner(props) {
                     <Text style={styles.text}>Home</Text>
                 </View>
             </Link>
+            <Link href="/workout">
+                <View style={styles.icon}>
+                    <Icon name={props.active === "workout" ? "walk" : "walk-outline"} size={30} color="gray" />
+                    <Text style={styles.text}>Workout</Text>
+                </View>
+            </Link>
             <Link href="/ai">
                 <View style={styles.icon}>
                     <Icon name={props.active === "ai" ? "sparkles-sharp" : "sparkles-outline"} size={30} color="#ffd700"/>
