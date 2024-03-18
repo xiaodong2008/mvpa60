@@ -22,6 +22,7 @@ export default function HomeLayout() {
         db.auth.onAuthStateChange((event, session) => {
             if (event === 'SIGNED_OUT') setSession(null), setProfile(null)
             else setSession(session)
+            console.log(event, session)
         })
     }, []);
 
@@ -32,9 +33,13 @@ export default function HomeLayout() {
     return (
         <SessionContext.Provider
             value={{
-                user: session?.user,
-                profile: profile,
-                updateProfile: () => getProfile().then(r => setProfile(r))
+                user: session ? session.user : null,
+                profile: {
+                    ...profile?.public_data,
+                    ...profile?.private_data,
+                },
+                updateProfile: () => getProfile().then(r => setProfile(r)),
+                clearSession: () => setSession(null),
             }}>
             <FlashMessage position="top"/>
             <SafeAreaView style={styles.container}>
