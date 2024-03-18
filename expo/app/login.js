@@ -14,6 +14,8 @@ import {LinearGradient} from "expo-linear-gradient";
 import user from "../user";
 
 import theme from "../theme";
+import Button from "../components/button";
+import Input from "../components/input";
 
 export default function Page(props) {
     const [email, setEmail] = useState("");
@@ -29,41 +31,39 @@ export default function Page(props) {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
-                <Text style={styles.form.title}>{mode === "register" ? "Create a Account" : "Login to your Account"}</Text>
-                <TextInput style={styles.input}
-                           placeholder='Email'
-                           placeholderTextColor={'rgba(231,231,231,0.81)'}
-                           onChangeText={setEmail}></TextInput>
-                <TextInput style={styles.input}
-                           placeholder='Password'
-                           placeholderTextColor={'rgba(231,231,231,0.81)'}
-                           onChangeText={setPassword}></TextInput>
-                {
-                    mode === "register" && <TextInput style={styles.input}
-                                                      placeholder='Confirm Password'
-                                                      placeholderTextColor={'rgba(231,231,231,0.81)'}
-                                                      onChangeText={setConfirmPassword}></TextInput>
-                }
-                <Pressable onPress={submit}>
-                    <View style={styles.btn.container}>
-                        {
-                            loading ? <ActivityIndicator/> :
-                                <Text style={styles.btn.text}>{mode === "register" ? "Sign Up" : "Log In"}</Text>
-                        }</View>
-                </Pressable>
-                {
-                    alert ? <Text style={styles.alert}>{alert}</Text> : null
-                }
-                <Text style={styles.text} onPress={switchMode}>
-                    {
-                        mode === "register" ? "Already have a account? " : "Don't have a account? "
-                    }
-                    <Text style={styles.link}>
-                        {
-                            mode === "register" ? "Log In >" : "Register Now >"
-                        }
+                <View style={styles.box}>
+                    <Text
+                        style={styles.form.title}>
+                        {mode === "register" ? "Create a Account" : "Login to your Account"}
                     </Text>
-                </Text>
+                    <Input color="white" text="Email" event={setEmail}/>
+                    <Input color="white" text="Password" event={setPassword} secure={true}/>
+                    {
+                        mode === "register" &&
+                        <Input color="white"
+                               secure={true}
+                               text="Confirm Password"
+                               event={setConfirmPassword}/>
+                    }
+                    <Button width={300}
+                            onPress={submit}
+                            text={mode === "register" ? "Sign Up" : "Log In"}
+                            loading={loading}
+                    />
+                    {
+                        alert ? <Text style={styles.alert}>{alert}</Text> : null
+                    }
+                    <Text style={styles.text} onPress={switchMode}>
+                        {
+                            mode === "register" ? "Already have a account? " : "Don't have a account? "
+                        }
+                        <Text style={styles.link}>
+                            {
+                                mode === "register" ? "Log In >" : "Register Now >"
+                            }
+                        </Text>
+                    </Text>
+                </View>
                 {background()}
             </View>
         </TouchableWithoutFeedback>
@@ -86,6 +86,8 @@ export default function Page(props) {
         }
         setAlert("");
         setLoading(true);
+
+        Keyboard.dismiss();
 
         if (mode === "register") {
             register(email, password);
@@ -113,7 +115,7 @@ export default function Page(props) {
         user.login(email, password).then(res => {
             setLoading(false);
             console.log(props.success)
-                props.success()
+            props.success()
         }).catch(err => {
             setLoading(false);
             setAlert(err.message);
@@ -134,11 +136,18 @@ function background() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        display: "flex",
+        width: '100%',
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         margin: 'auto',
         position: 'relative',
+    },
+    box: {
+        display: "flex",
+        alignItems: 'center',
+        width: 300,
     },
     form: {
         title: {
@@ -162,36 +171,6 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(255,255,255,0.29)',
         backgroundColor: 'rgba(255,255,255,0.29)',
         paddingLeft: 10,
-    },
-    btn: {
-        container: {
-            width: 300,
-            height: 36,
-            borderRadius: 8,
-            overflow: 'hidden',
-            display: 'flex',
-            justifyContent: 'center',
-            backgroundColor: theme.color.primary,
-        },
-        text: {
-            color: 'white',
-            fontSize: 14,
-            fontWeight: '700',
-            textAlign: 'center',
-            lineHeight: 36
-        }
-    },
-    disableBtn: {
-        width: 300,
-        height: 36,
-        color: 'white',
-        backgroundColor: 'gray',
-        fontSize: 18,
-        fontWeight: '700',
-        borderRadius: 10,
-        overflow: 'hidden',
-        textAlign: 'center',
-        lineHeight: 36,
     },
     alert: {
         color: 'red',
