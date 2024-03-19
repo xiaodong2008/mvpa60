@@ -12,6 +12,7 @@ import {
 import React, {useState} from 'react';
 import {LinearGradient} from "expo-linear-gradient";
 import user from "../user";
+import message from "../message"
 
 import theme from "../theme";
 import Button from "../components/button";
@@ -104,7 +105,7 @@ export default function Page(props) {
     function register() {
         user.register(email, password).then(res => {
             setLoading(false);
-            props.success()
+            message.success("Register successful, Please confirm register with your email.")
         }).catch(err => {
             setLoading(false);
             setAlert(err.message);
@@ -115,7 +116,8 @@ export default function Page(props) {
         user.login(email, password).then(res => {
             setLoading(false);
             console.log(props.success)
-            props.success()
+            // props.success()
+            props.navigation.goBack()
         }).catch(err => {
             setLoading(false);
             setAlert(err.message);
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
         hide: {
             position: 'absolute',
             width: '100%',
-            height: 300,
+            height: '40%',
             bottom: -50,
             zIndex: 100,
         }
