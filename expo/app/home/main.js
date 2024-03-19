@@ -1,4 +1,4 @@
-import Card from "../../component`s/card";
+import Card from "../../components/card";
 import {Feather, FontAwesome5} from "@expo/vector-icons";
 import {ScrollView, View} from "react-native";
 import Topbar from "../../components/topbar";
