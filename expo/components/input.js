@@ -25,6 +25,7 @@ export default function Input(props) {
             secureTextEntry={props.secure}
             placeholder={props.text}
             placeholderTextColor={theme.color.gray}
+            autoCapitalize={props.cap ? props.cap : "sentences"}
             onChangeText={props.event}/>
     );
 }

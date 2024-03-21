@@ -27,8 +27,6 @@ export default function Page(props) {
     const [loading, setLoading] = useState(false);
     const [mode, setMode] = useState("register");
 
-    // let session = useContext()
-
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
@@ -37,7 +35,7 @@ export default function Page(props) {
                         style={styles.form.title}>
                         {mode === "register" ? "Create a Account" : "Login to your Account"}
                     </Text>
-                    <Input color="white" text="Email" event={setEmail}/>
+                    <Input color="white" text="Email" cap='none' event={setEmail}/>
                     <Input color="white" text="Password" event={setPassword} secure={true}/>
                     {
                         mode === "register" &&
@@ -154,7 +152,7 @@ const styles = StyleSheet.create({
     form: {
         title: {
             fontSize: 28,
-            color: 'white',
+            color: theme.color.gray,
             fontWeight: 'bold',
             marginBottom: 20,
         },
