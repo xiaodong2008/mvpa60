@@ -1,7 +1,7 @@
 import {Slot} from 'expo-router';
 import React, {useEffect} from 'react';
 import db from '../database';
-import {SafeAreaView, StyleSheet} from "react-native";
+import {View, StyleSheet, Image} from "react-native";
 
 import FlashMessage from "react-native-flash-message";
 import message from "../message";
@@ -42,9 +42,10 @@ export default function HomeLayout() {
                 clearSession: () => setSession(null),
             }}>
             <FlashMessage position="top"/>
-            <SafeAreaView style={styles.container}>
+            <Image style={styles.background} source={require('../assets/background.png')}/>
+            <View style={styles.container}>
                 <Slot name="main"/>
-            </SafeAreaView>
+            </View>
         </SessionContext.Provider>
     );
 
@@ -66,7 +67,12 @@ export default function HomeLayout() {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        flex: 1,
-        backgroundColor: '#fff',
+        flex: 1
     },
+    background: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        zIndex: 0
+    }
 });
