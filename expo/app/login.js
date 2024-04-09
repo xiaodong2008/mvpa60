@@ -12,11 +12,11 @@ import {
 import React, {useState} from 'react';
 import {LinearGradient} from "expo-linear-gradient";
 import user from "../user";
-import message from "../message"
+import message from "../message";
 
 import theme from "../theme";
 import Button from "../components/button";
-import Input from "../components/input";
+import Input from "../components/login-input";
 
 export default function Page(props) {
     const [email, setEmail] = useState("");
@@ -33,14 +33,13 @@ export default function Page(props) {
                 <View style={styles.box}>
                     <Text
                         style={styles.form.title}>
-                        {mode === "register" ? "Create a Account" : "Login to your Account"}
+                        {mode === "register" ? "Hello!" : "Welcome\nBack!"}
                     </Text>
-                    <Input color="white" text="Email" cap='none' event={setEmail}/>
-                    <Input color="white" text="Password" event={setPassword} secure={true}/>
+                    <Input text="Email" cap='none' event={setEmail}/>
+                    <Input text="Password" event={setPassword} secure={true}/>
                     {
                         mode === "register" &&
-                        <Input color="white"
-                               secure={true}
+                        <Input secure={true}
                                text="Confirm Password"
                                event={setConfirmPassword}/>
                     }
@@ -63,7 +62,6 @@ export default function Page(props) {
                         </Text>
                     </Text>
                 </View>
-                {background()}
             </View>
         </TouchableWithoutFeedback>
     );
@@ -123,22 +121,11 @@ export default function Page(props) {
     }
 }
 
-function background() {
-    return (
-        <View style={styles.background.container}>
-            <Image style={styles.background.image} source={require('../assets/run-background.png')}></Image>
-            {/*<Text style={styles.background.hide}></Text>*/}
-            <LinearGradient colors={['transparent', 'black', 'black']} style={styles.background.hide}></LinearGradient>
-        </View>
-    );
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
         width: '100%',
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         margin: 'auto',
@@ -151,10 +138,11 @@ const styles = StyleSheet.create({
     },
     form: {
         title: {
-            fontSize: 28,
-            color: theme.color.gray,
+            fontSize: 42,
+            color: 'black',
             fontWeight: 'bold',
-            marginBottom: 20,
+            marginBottom: 40,
+            width: '100%',
         },
     },
     test: {
@@ -166,10 +154,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         marginBottom: 20,
         borderWidth: 1,
-        borderRadius: 20,
+        borderRadius: 10,
         color: 'white',
         borderColor: 'rgba(255,255,255,0.29)',
-        backgroundColor: 'rgba(255,255,255,0.29)',
+        backgroundColor: 'white',
         paddingLeft: 10,
     },
     alert: {
