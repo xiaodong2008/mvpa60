@@ -42,9 +42,8 @@ const styles = StyleSheet.create({
         padding: 10,
         display: 'flex',
         flexDirection: 'row',
-        position: 'absolute',
         justifyContent: 'space-around',
-        bottom: 20
+        marginTop: 'auto'
     },
     icon: {
         width: 50,
