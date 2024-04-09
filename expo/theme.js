@@ -10,8 +10,18 @@ export default {
     styles: {
         pageRoot: {
             flex: 1,
-            height: '100%',
-            backgroundColor: 'rgba(187,187,187,0.24)'
+            height: '100%'
         }
+    },
+    stack: {
+        headerStyle: {
+            backgroundColor: 'transparent',
+            shadowColor: 'transparent',
+            elevation: 0,
+        },
+        contentStyle: {
+            backgroundColor: 'transparent',
+        },
+        headerShown: false
     }
 }
