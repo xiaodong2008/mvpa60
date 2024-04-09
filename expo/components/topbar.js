@@ -1,4 +1,5 @@
 import {
+    SafeAreaView,
     View,
     Text,
     StyleSheet,
@@ -18,7 +19,7 @@ export default function Topbar(props) {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Pressable style={styles.left} onPress={props.leftPress}>
                 {Object.keys(iconTemplate).includes(props.leftIcon) ? iconTemplate[props.leftIcon] : props.leftIcon}
             </Pressable>
@@ -26,7 +27,7 @@ export default function Topbar(props) {
             <Pressable style={styles.right} onPress={props.rightPress}>
                 {props.rightIcon}
             </Pressable>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -49,14 +50,13 @@ const templateStyles = {
 const styles = StyleSheet.create({
     container: {
         height: 32,
-        backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#e5e5e5',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
-        position: 'relative'
+        marginTop: 60
     },
     title: {
         display: 'flex',
