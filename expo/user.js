@@ -33,8 +33,6 @@ async function getAvatar() {
 }
 
 async function setAvatar(base64) {
-    console.log("111");
-    // console.log(base64.substring(0, 10));
     await setStorage("avatar", base64);
     return true;
 }
