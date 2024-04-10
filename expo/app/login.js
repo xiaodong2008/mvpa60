@@ -1,13 +1,9 @@
 import {
     Text,
     StyleSheet,
-    Pressable,
     View,
-    TextInput,
     Keyboard,
-    TouchableWithoutFeedback,
-    Image,
-    ActivityIndicator,
+    TouchableWithoutFeedback
 } from 'react-native';
 import React, {useState} from 'react';
 import {LinearGradient} from "expo-linear-gradient";
