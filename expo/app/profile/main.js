@@ -54,9 +54,11 @@ export default function Profile({ navigation }) {
 
     useEffect(() => {
         async function getAvatar() {
+            user.getAvatar().then(uri => {
+                if (uri) setAvatarUri(uri)
+            })
             const { data, error } = await db.storage.from('avatar').createSignedUrl(session.user.id, 3600)
             if (data) {
-                setAvatarUri(data.signedUrl)
                 axios.get(data.signedUrl, {
                     responseType: "arraybuffer"
                 }).then(data => {
