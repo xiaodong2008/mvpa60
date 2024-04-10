@@ -19,7 +19,7 @@ export default function Page({ navigation }) {
 
     return (
         <View style={theme.styles.pageRoot}>
-            <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName="Home" screenOptions={theme.stack}>
                 <Stack.Screen name="Home" component={Main} />
                 <Stack.Screen name="Post" component={Post} />
             </Stack.Navigator>
