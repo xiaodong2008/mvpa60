@@ -5,6 +5,8 @@ import {SessionContext} from "../../_layout";
 
 import Topbar from "../../../components/topbar";
 import Select from "../../../components/select";
+import Blank from "../../../components/blank";
+import Banner from "../../../components/banner";
 import theme from "../../../theme";
 
 export default function Setting({navigation}) {
@@ -16,6 +18,12 @@ export default function Setting({navigation}) {
                     leftIcon="back"
                     leftPress={navigation.goBack}/>
             <ScrollView>
+                <Text style={styles.title}>
+                    Preferences
+                </Text>
+                <Select text="Language" value="English" first={true}/>
+                <Select text="Fitness Goal" value="Lose Weight" />
+                <Select text="Goals per Day" value="1 hour"/>
                 <Text style={styles.title}>
                     Account Setting
                 </Text>
@@ -32,7 +40,9 @@ export default function Setting({navigation}) {
                 <Select text="Delete Account"
                         danger={true} last={true}
                         onPress={() => navigation.navigate("Settings/DeleteAccount")}/>
+                <Blank height={100}/>
             </ScrollView>
+            <Banner active="profile" />
         </View>
     )
 }
@@ -40,6 +50,7 @@ export default function Setting({navigation}) {
 const styles = {
     container: {
         flex: 1,
+        backgroundColor: 'white'
     },
     title: {
         backgroundColor: theme.color.background,
