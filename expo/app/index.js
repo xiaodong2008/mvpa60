@@ -1,7 +1,6 @@
 import {
-    Text,
     StyleSheet,
-    Button,
+    Image,
     View,
     Animated,
     Dimensions, SafeAreaView, ScrollView,
@@ -46,15 +45,10 @@ export default function Page() {
 
     return (
         <View style={theme.styles.pageRoot}>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Navigator screenOptions={theme.stack}>
                 <Stack.Screen name="Main" component={Main}/>
                 <Stack.Screen name="Login" component={Login}/>
             </Stack.Navigator>
-            {/*<Animated.View style={[styles.login, loginWindow.getLayout()]}>*/}
-            {/*    <Login success={() => {*/}
-            {/*        setShow(false);*/}
-            {/*    }}/>*/}
-            {/*</Animated.View>*/}
         </View>
     );
 }
@@ -64,5 +58,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
+    },
+    background: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
     }
 });
