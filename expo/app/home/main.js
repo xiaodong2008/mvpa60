@@ -3,6 +3,7 @@ import { Feather, FontAwesome5 } from "@expo/vector-icons";
 import { ScrollView, View } from "react-native";
 import { useContext } from "react";
 import { SessionContext } from "../_layout";
+import { router } from "expo-router";
 
 import Topbar from "../../components/topbar";
 
@@ -23,6 +24,7 @@ export default function Home({ navigation }) {
                     <ScrollView>
                         <Card icon={<FontAwesome5 name="running" size={24} color="black" />}
                             title="Do a quick run" btn="Start exercise >"
+                            onPress={() => router.push('/workout')}
                             text="Running is a great way to get some exercise and you can do it anywhere, anytime." />
                         <Card icon={<FontAwesome5 name="user-friends" size={20} color="black" />}
                             title="Write a post" btn="Write now >"
