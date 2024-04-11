@@ -33,8 +33,8 @@ export default function Home({ navigation }) {
         {
             name: "Felix Wong",
             score: 50,
-        }
-    ]
+        },
+    ];
 
     return (
         <View style={styles.container}>
@@ -73,21 +73,10 @@ export default function Home({ navigation }) {
           /> */}
                     <View style={styles.block.container}>
                         <Image
-                            style={{
-                                width: "100%",
-                                height: 220,
-                                borderRadius: 10,
-                                resizeMode: "stretch",
-                            }}
+                            style={styles.block.image}
                             source={require("../../assets/mvpa-cover.png")}
                         ></Image>
-                        <Text
-                            style={{
-                                fontSize: 13,
-                                marginTop: 10,
-                                color: "#383838",
-                            }}
-                        >
+                        <Text style={styles.block.text}>
                             The “MVPA60 Award Scheme” (Scheme) aims to encourage
                             students to develop a habit of regularly taking part
                             in physical activities as early as possible in order
@@ -103,14 +92,14 @@ export default function Home({ navigation }) {
                     </View>
                     <View style={styles.ranking.container}>
                         <Text style={styles.ranking.title}>Ranking</Text>
-                        {
-                            ranking.map((item, index) => (
-                                <View style={styles.ranking.item} key={index}>
-                                    <Text>{index + 1}. {item.name}</Text>
-                                    <Text>{item.score} hours</Text>
-                                </View>
-                            ))
-                        }
+                        {ranking.map((item, index) => (
+                            <View style={styles.ranking.item} key={index}>
+                                <Text>
+                                    {index + 1}. {item.name}
+                                </Text>
+                                <Text>{item.score} hours</Text>
+                            </View>
+                        ))}
                     </View>
                 </ScrollView>
             )}
@@ -129,6 +118,17 @@ const styles = {
             margin: 20,
             marginBottom: 0,
             borderRadius: 10,
+        },
+        image: {
+            width: "100%",
+            height: 220,
+            borderRadius: 10,
+            resizeMode: "stretch",
+        },
+        text: {
+            fontSize: 13,
+            marginTop: 10,
+            color: "#383838",
         },
     },
     ranking: {
@@ -152,7 +152,7 @@ const styles = {
             alignItems: "center",
             justifyContent: "space-between",
             marginTop: 12,
-            paddingLeft: 8
+            paddingLeft: 8,
         },
     },
 };
