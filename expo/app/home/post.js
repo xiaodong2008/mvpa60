@@ -16,13 +16,10 @@ import theme from "../../theme";
 
 export default function Post({navigation}) {
     return (
-        // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.view}>
             <Topbar title="Post"
                     leftIcon="back"
-                    leftPress={() => {
-                        navigation.goBack(), console.log(1)
-                    }}
+                    leftPress={navigation.goBack}
                     rightIcon={
                         <View style={styles.topbar.container}>
                             <Text style={{...styles.topbar.text}}>Post</Text>
@@ -45,7 +42,6 @@ export default function Post({navigation}) {
                 <Text style={styles.form.info}>This post will publish immediately</Text>
             </View>
         </View>
-        // </TouchableWithoutFeedback>
     )
 }
 
@@ -72,10 +68,10 @@ const styles = StyleSheet.create({
             display: 'flex',
             margin: 10,
             padding: 20,
-            backgroundColor: 'white',
+            backgroundColor: 'transparent',
             borderRadius: 10,
             elevation: 5,
-            height: '80%'
+            height: '75%'
         },
         title: {
             fontSize: 20,
