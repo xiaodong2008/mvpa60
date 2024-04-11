@@ -28,6 +28,39 @@ export default function Page() {
         })
     })
 
+    function sendMsg() {
+        const msg = { text: input, from: "user" };
+        setInput("");
+        // setMessages([...messages, msg, {
+        //     text: "|",
+        //     from: "ai"
+        // }]);
+        messages.push(msg)
+        messages.push({
+            text: "|",
+            from: "ai"
+        })
+        console.log(messages.length);
+        const fakeReply = "MVPA60 aims to encourage students to develop a habit of regularly taking part in physical activities as early as possible in order to achieve the World Health Organisation (WHO)’s recommendation that children and adolescents aged 5-17 should accumulate at least an average of 60 minutes daily of moderate-to vigorous-intensity physical activities across the week."
+        let i = 0
+        const val = setInterval(() => {
+            console.log(messages.length);
+            messages.pop()
+            // setMessages([...messages, {
+            //     text: fakeReply.slice(0, i) + (i === fakeReply.length - 1 ? "" : "|"),
+            //     from: "ai"
+            // }])
+            messages.push({
+                text: fakeReply.slice(0, i) + (i === fakeReply.length - 1 ? "" : "|"),
+                from: "ai"
+            })
+            setMessages([...messages])
+            if (++i === fakeReply.length) {
+                clearInterval(val)
+            }
+        }, 5)
+    }
+
     return (
         <View style={theme.styles.pageRoot}>
             <Topbar title="AI" />
@@ -59,7 +92,7 @@ export default function Page() {
                         value={input}
                         onChangeText={setInput}
                     />
-                    <Pressable>
+                    <Pressable onPress={sendMsg}>
                         <Text style={styles.bottom.text}>Send</Text>
                     </Pressable>
                 </View>
