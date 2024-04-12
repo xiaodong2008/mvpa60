@@ -16,23 +16,28 @@ export default function Home({ navigation }) {
     const ranking = [
         {
             name: "Wan Chak Li",
-            score: 83,
+            hour: 83,
+            week: 8,
         },
         {
             name: "XiaoDong",
-            score: 75,
+            hour: 75,
+            week: 7,
         },
         {
             name: "Reddit",
-            score: 59,
+            hour: 59,
+            week: 7,
         },
         {
             name: "Machiel Kuijt",
-            score: 58,
+            hour: 58,
+            week: 6
         },
         {
             name: "Felix Wong",
-            score: 50,
+            hour: 50,
+            week: 5
         },
     ];
 
@@ -94,10 +99,11 @@ export default function Home({ navigation }) {
                         <Text style={styles.ranking.title}>Ranking</Text>
                         {ranking.map((item, index) => (
                             <View style={styles.ranking.item} key={index}>
-                                <Text>
+                                <Text width={180}>
                                     {index + 1}. {item.name}
                                 </Text>
-                                <Text>{item.score} hours</Text>
+                                <Text>{item.week} week</Text>
+                                <Text>{item.hour} hours</Text>
                             </View>
                         ))}
                     </View>
@@ -121,7 +127,7 @@ const styles = {
         },
         image: {
             width: "100%",
-            height: 220,
+            height: 240,
             borderRadius: 10,
             resizeMode: "stretch",
         },
