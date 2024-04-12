@@ -7,6 +7,7 @@ import theme from "../../theme";
 import Topbar from "../../components/topbar";
 import Banner from "../../components/banner";
 import Avatar from "./avatar";
+import Statistic from "./statistic";
 
 export default function Profile({ navigation }) {
     const session = useContext(SessionContext);
@@ -24,11 +25,12 @@ export default function Profile({ navigation }) {
                 }
                 rightPress={() => navigation.navigate("Settings")}
             />
-            <View>
+            <View style={styles.container}>
                 <Avatar />
                 <Text style={styles.name}>
                     {session.profile?.nickname || "Anonymous"}
                 </Text>
+                <Statistic />
             </View>
             <Banner active="profile" />
         </View>
@@ -36,6 +38,9 @@ export default function Profile({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
     name: {
         fontSize: 20,
         textAlign: "center",
