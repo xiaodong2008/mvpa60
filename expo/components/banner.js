@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop: 'auto'
+        marginTop: 'auto',
+        marginBottom: 20
     },
     icon: {
         width: 50,
