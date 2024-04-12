@@ -10,6 +10,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useContext, useState, useEffect } from "react";
 import { SessionContext } from "../_layout";
 import message from "../../message";
+import theme from "../../theme";
 
 import { decode } from "base64-arraybuffer";
 import { Buffer } from "buffer";
