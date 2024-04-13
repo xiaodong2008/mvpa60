@@ -23,7 +23,7 @@ export default function Page() {
                     <Text
                         style={[
                             styles.flexBox.block,
-                            styles.flexBox.block.active,
+                            styles.flexBox.active,
                         ]}
                     >
                         All
@@ -39,6 +39,9 @@ export default function Page() {
                             source={require("../../assets/endurance-training.png")}
                             style={styles.block.image}
                         />
+                        <Text style={styles.block.title}>
+                            Endurance Training
+                        </Text>
                         <Text style={styles.block.text}>
                             Endurance exercise includes activities that increase
                             your breathing and heart rate such as walking,
@@ -47,9 +50,12 @@ export default function Page() {
                     </View>
                     <View style={styles.block.container}>
                         <Image
-                            source={require("../../assets/strength-training.png")}
+                            source={require("../../assets/strength-training.jpg")}
                             style={styles.block.image}
                         />
+                        <Text style={styles.block.title}>
+                            Strength Training
+                        </Text>
                         <Text style={styles.block.text}>
                             Strength training is a type of exercise that causes
                             your muscles to contract against an outside
@@ -61,6 +67,9 @@ export default function Page() {
                             source={require("../../assets/balance-training.png")}
                             style={styles.block.image}
                         />
+                        <Text style={styles.block.title}>
+                            Balance Training
+                        </Text>
                         <Text style={styles.block.text}>
                             Performing balance exercises can help a person
                             maintain or increase their coordination and
@@ -69,9 +78,12 @@ export default function Page() {
                     </View>
                     <View style={styles.block.container}>
                         <Image
-                            source={require("../../assets/flexibility-training.png")}
+                            source={require("../../assets/flexibility-training.jpg")}
                             style={styles.block.image}
                         />
+                        <Text style={styles.block.title}>
+                            Flexibility Training
+                        </Text>
                         <Text style={styles.block.text}>
                             Flexibility exercises stretch your muscles and can
                             help your body move and bend easier.
@@ -119,14 +131,14 @@ const styles = StyleSheet.create({
             textAlign: "center",
             overflow: "hidden",
             marginBottom: 20,
-            active: {
-                width: 50,
-                padding: 10,
-                marginLeft: 0,
-                marginRight: 10,
-                backgroundColor: theme.color.primary,
-            }
         },
+        active: {
+            width: 50,
+            padding: 10,
+            marginLeft: 0,
+            marginRight: 10,
+            backgroundColor: theme.color.primary,
+        }
     },
     block: {
         container: {
@@ -137,9 +149,19 @@ const styles = StyleSheet.create({
         },
         image: {
             width: "100%",
-            height: 180,
+            height: 260,
             borderRadius: 10,
             resizeMode: "stretch",
+        },
+        title: {
+            position: "absolute",
+            color: "white",
+            fontSize: 36,
+            fontWeight: "700",
+            wordWrap: "break-word",
+            width: 240,
+            top: 175,
+            left: 25,
         },
         text: {
             fontSize: 13,
