@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
     },
     bottom: {
         container: {
-            width: "100%",
             display: "flex",
             flexDirection: "row",
             position: "absolute",
