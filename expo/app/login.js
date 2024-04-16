@@ -94,7 +94,7 @@ export default function Page(props) {
         setMode(mode === "register" ? "login" : "register");
     }
 
-    function register() {
+    function register(email, password) {
         user.register(email, password).then(res => {
             setLoading(false);
             message.success("Register successful, Please confirm register with your email.")
