@@ -6,6 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   Image,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import React from "react";
 
@@ -55,7 +57,10 @@ export default function Page() {
   }
 
   return (
-    <View style={theme.styles.pageRoot}>
+    <KeyboardAvoidingView
+      style={theme.styles.pageRoot}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <Topbar title="AI" />
       <View style={styles.container}>
         <View style={styles.main.container}>
@@ -93,7 +98,7 @@ export default function Page() {
         </View>
       </View>
       <Banner active="ai" />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
