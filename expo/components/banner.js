@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: "auto",
     marginBottom: 20,
+    zIndex: 99,
   },
   icon: {
     width: 50,

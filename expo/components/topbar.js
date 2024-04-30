@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     display: "flex",
     marginTop: 60,
+    zIndex: 99,
   },
   title: {
     display: "flex",
