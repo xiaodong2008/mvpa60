@@ -10,41 +10,41 @@ import Avatar from "./avatar";
 import Statistic from "./statistic";
 
 export default function Profile({ navigation }) {
-    const session = useContext(SessionContext);
+  const session = useContext(SessionContext);
 
-    return (
-        <View style={theme.styles.pageRoot}>
-            <Topbar
-                title="Profile"
-                rightIcon={
-                    <Ionicons
-                        name="settings-sharp"
-                        size={20}
-                        color={theme.color.primary}
-                    />
-                }
-                rightPress={() => navigation.navigate("Settings")}
-            />
-            <View style={styles.container}>
-                <Avatar />
-                <Text style={styles.name}>
-                    {session.profile?.nickname || "Anonymous"}
-                </Text>
-                <Statistic />
-            </View>
-            <Banner active="profile" />
-        </View>
-    );
+  return (
+    <View style={theme.styles.pageRoot}>
+      <Topbar
+        title="Profile"
+        rightIcon={
+          <Ionicons
+            name="settings-sharp"
+            size={20}
+            color={theme.color.primary}
+          />
+        }
+        rightPress={() => navigation.navigate("Settings")}
+      />
+      <View style={styles.container}>
+        <Avatar />
+        <Text style={styles.name}>
+          {session.profile?.nickname || "Anonymous"}
+        </Text>
+        <Statistic />
+      </View>
+      <Banner active="profile" />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    name: {
-        fontSize: 20,
-        textAlign: "center",
-        marginTop: 20,
-        fontWeight: "bold",
-    },
+  container: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 20,
+    textAlign: "center",
+    marginTop: 20,
+    fontWeight: "bold",
+  },
 });
