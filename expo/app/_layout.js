@@ -43,10 +43,6 @@ export default function HomeLayout() {
       }}
     >
       <FlashMessage position="top" />
-      <Image
-        style={styles.background}
-        source={require("../assets/background.png")}
-      />
       <View style={styles.container}>
         <Slot name="main" />
       </View>
@@ -78,11 +74,5 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     flex: 1,
-  },
-  background: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    zIndex: 0,
   },
 });

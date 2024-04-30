@@ -5793,6 +5793,11 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-dropdown-select-list@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-dropdown-select-list/-/react-native-dropdown-select-list-2.0.5.tgz#3626b2bf9b9c5e157b02f60cf36174cde7550056"
+  integrity sha512-TepbcagQVUMB6nLuIlVU2ghRpQHAECOeZWe8K04ymW6NqbKbxuczZSDFfdCiABiiQ2dFD+8Dz65y4K7/uUEqGg==
+
 react-native-flash-message@^0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/react-native-flash-message/-/react-native-flash-message-0.4.2.tgz#ed8ffe60c532bc1274c3b49a60dd0bd2fca59c50"

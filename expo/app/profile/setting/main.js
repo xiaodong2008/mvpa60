@@ -9,11 +9,14 @@ import Blank from "../../../components/blank";
 import Banner from "../../../components/banner";
 import theme from "../../../theme";
 
+import Background from "../../../components/background";
+
 export default function Setting({ navigation }) {
   const session = useContext(SessionContext);
 
   return (
     <View style={styles.container}>
+      <Background />
       <Topbar title="Profile" leftIcon="back" leftPress={navigation.goBack} />
       <ScrollView>
         <Text style={styles.title}>Preferences</Text>
@@ -55,7 +58,7 @@ export default function Setting({ navigation }) {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "white",
+    // backgroundColor: "white",
   },
   title: {
     backgroundColor: theme.color.background,

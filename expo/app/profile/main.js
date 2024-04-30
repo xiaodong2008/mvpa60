@@ -9,11 +9,14 @@ import Banner from "../../components/banner";
 import Avatar from "./avatar";
 import Statistic from "./statistic";
 
+import Background from "../../components/background";
+
 export default function Profile({ navigation }) {
   const session = useContext(SessionContext);
 
   return (
     <View style={theme.styles.pageRoot}>
+      <Background />
       <Topbar
         title="Profile"
         rightIcon={

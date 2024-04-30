@@ -14,9 +14,12 @@ import Topbar from "../../components/topbar";
 import { FontAwesome5 } from "@expo/vector-icons";
 import theme from "../../theme";
 
+import Background from "../../components/background";
+
 export default function Post({ navigation }) {
   return (
     <View style={styles.view}>
+      <Background />
       <Topbar
         title="Post"
         leftIcon="back"

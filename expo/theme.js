@@ -9,8 +9,12 @@ export default {
   },
   styles: {
     pageRoot: {
+      position: "relative",
       flex: 1,
       height: "100%",
+    },
+    pageContent: {
+      zIndex: 1,
     },
   },
   stack: {

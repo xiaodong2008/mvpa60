@@ -4,11 +4,11 @@ import message from "../../../message";
 import { SessionContext } from "../../_layout";
 import db from "../../../database";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
 import Topbar from "../../../components/topbar";
 import Button from "../../../components/button";
 import Input from "../../../components/input";
+
+import Background from "../../../components/background";
 
 export default function Nickname({ navigation }) {
   const [nickname, setNickname] = useState("");
@@ -20,6 +20,7 @@ export default function Nickname({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ height: "100%" }}>
+        <Background />
         <Topbar
           title="Change Nickname"
           leftIcon="back"

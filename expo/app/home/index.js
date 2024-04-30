@@ -6,7 +6,6 @@ import theme from "../../theme";
 
 import Main from "./main";
 import Post from "./post";
-import Banner from "../../components/banner";
 const Stack = createNativeStackNavigator();
 
 export default function Page({ navigation }) {
@@ -22,7 +21,6 @@ export default function Page({ navigation }) {
         <Stack.Screen name="Home" component={Main} />
         <Stack.Screen name="Post" component={Post} />
       </Stack.Navigator>
-      <Banner active="home" />
     </View>
   );
 }

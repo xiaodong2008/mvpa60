@@ -7,9 +7,12 @@ import { router } from "expo-router";
 import Button from "../../../components/button";
 import theme from "../../../theme";
 
+import Background from "../../../components/background";
+
 export default function Delete({ navigation }) {
   return (
     <View>
+      <Background />
       <Topbar title="Delete Account" />
       <View style={styles.container}>
         <Text style={styles.text}>

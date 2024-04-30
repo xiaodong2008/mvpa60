@@ -6,6 +6,8 @@ import { SessionContext } from "../_layout";
 import { router } from "expo-router";
 
 import Topbar from "../../components/topbar";
+import Banner from "../../components/banner";
+import Background from "../../components/background";
 
 import theme from "../../theme";
 
@@ -42,7 +44,7 @@ export default function Home({ navigation }) {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={theme.styles.pageRoot}>
       <Topbar
         title="Home"
         history={true}
@@ -58,9 +60,10 @@ export default function Home({ navigation }) {
         rightIcon={<Feather name="plus-circle" size={22} color="#41C9E2" />}
         rightPress={() => navigation.navigate("Post")}
       />
-      {session.user && (
-        <ScrollView>
-          {/* <Card
+      <View style={theme.styles.pageContent}>
+        {session.user && (
+          <ScrollView>
+            {/* <Card
             icon={<FontAwesome5 name="running" size={24} color="black" />}
             title="Do a quick run"
             btn="Start exercise >"
@@ -74,37 +77,40 @@ export default function Home({ navigation }) {
             onPress={() => navigation.navigate("Post")}
             text="Just broke through your personal best, or maybe you just want to share your thoughts? Write a post and share it with MVPA community."
           /> */}
-          <View style={styles.block.container}>
-            <Image
-              style={styles.block.image}
-              source={require("../../assets/mvpa-cover.png")}
-            ></Image>
-            <Text style={styles.block.text}>
-              The “MVPA60 Award Scheme” (Scheme) aims to encourage students to
-              develop a habit of regularly taking part in physical activities as
-              early as possible in order to achieve the World Health
-              Organisation (WHO)’s recommendation that children and adolescents
-              aged 5-17 should accumulate at least an average of 60 minutes
-              daily of moderate-to vigorous-intensity physical activities
-              (MVPA60) across the week, through which students can cultivate
-              positive values and attitudes such as perseverance and willingness
-              to accept challenges.
-            </Text>
-          </View>
-          <View style={styles.ranking.container}>
-            <Text style={styles.ranking.title}>Ranking</Text>
-            {ranking.map((item, index) => (
-              <View style={styles.ranking.item} key={index}>
-                <Text width={180}>
-                  {index + 1}. {item.name}
-                </Text>
-                <Text>{item.week} week</Text>
-                <Text>{item.hour} hours</Text>
-              </View>
-            ))}
-          </View>
-        </ScrollView>
-      )}
+            <View style={styles.block.container}>
+              <Image
+                style={styles.block.image}
+                source={require("../../assets/mvpa-cover.png")}
+              ></Image>
+              <Text style={styles.block.text}>
+                The “MVPA60 Award Scheme” (Scheme) aims to encourage students to
+                develop a habit of regularly taking part in physical activities
+                as early as possible in order to achieve the World Health
+                Organisation (WHO)’s recommendation that children and
+                adolescents aged 5-17 should accumulate at least an average of
+                60 minutes daily of moderate-to vigorous-intensity physical
+                activities (MVPA60) across the week, through which students can
+                cultivate positive values and attitudes such as perseverance and
+                willingness to accept challenges.
+              </Text>
+            </View>
+            <View style={styles.ranking.container}>
+              <Text style={styles.ranking.title}>Ranking</Text>
+              {ranking.map((item, index) => (
+                <View style={styles.ranking.item} key={index}>
+                  <Text width={180}>
+                    {index + 1}. {item.name}
+                  </Text>
+                  <Text>{item.week} week</Text>
+                  <Text>{item.hour} hours</Text>
+                </View>
+              ))}
+            </View>
+          </ScrollView>
+        )}
+      </View>
+      <Banner active="home" />
+      <Background />
     </View>
   );
 }

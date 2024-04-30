@@ -11,8 +11,9 @@ import {
 } from "react-native";
 import React from "react";
 
-import Banner from "../components/banner";
 import Topbar from "../components/topbar";
+import Banner from "../components/banner";
+import Background from "../components/background";
 import theme from "../theme";
 
 import user from "../user";
@@ -62,7 +63,7 @@ export default function Page() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Topbar title="AI" />
-      <View style={styles.container}>
+      <View style={[theme.styles.pageContent, styles.container]}>
         <View style={styles.main.container}>
           <ScrollView>
             {messages.map((msg, i) => (
@@ -98,6 +99,7 @@ export default function Page() {
         </View>
       </View>
       <Banner active="ai" />
+      <Background />
     </KeyboardAvoidingView>
   );
 }

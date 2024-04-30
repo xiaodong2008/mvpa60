@@ -12,14 +12,18 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "This app uses the camera to take a avatar.",
+        "NSCameraUsageDescription": "MVPA60 needs access to your Camera to record workout.",
         "NSPhotoLibraryUsageDescription": "This app uses the photo library to upload avatar.",
-        "NSLocationWhenInUseUsageDescription": "This app uses location to record your workout."
-      }
+        "NSLocationWhenInUseUsageDescription": "This app uses location to record your workout.",
+        "NSMicrophoneUsageDescription": "MVPA60 needs access to your Microphone to record workout."
+      },
+      "bundleIdentifier": "com.anonymous.mvpago"
     },
     "android": {
       "adaptiveIcon": {

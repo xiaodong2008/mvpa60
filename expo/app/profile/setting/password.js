@@ -1,11 +1,11 @@
 import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";
 import { useState } from "react";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
 import Topbar from "../../../components/topbar";
 import Button from "../../../components/button";
 import Input from "../../../components/input";
+
+import Background from "../../../components/background";
 
 import db from "../../../database";
 
@@ -20,6 +20,7 @@ export default function Password({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ height: "100%" }}>
+        <Background />
         <Topbar
           title="Change Password"
           leftIcon="back"
