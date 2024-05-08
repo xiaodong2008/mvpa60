@@ -6,6 +6,7 @@ import {
   ScrollView,
   Keyboard,
   TouchableWithoutFeedback,
+  Pressable,
 } from "react-native";
 import React from "react";
 
@@ -14,8 +15,16 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import theme from "../../theme";
 
 import Background from "../../components/background";
+import message from "../../message";
 
 export default function Post({ navigation }) {
+  const submit = () => {
+    setTimeout(() => {
+      navigation.goBack();
+      message.success("Post published");
+    }, 1000)
+  }
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.view}>
@@ -25,10 +34,10 @@ export default function Post({ navigation }) {
           leftIcon="back"
           leftPress={navigation.goBack}
           rightIcon={
-            <View style={styles.topbar.container}>
+            <Pressable style={styles.topbar.container} onPress={submit}>
               <Text style={{ ...styles.topbar.text }}>Post</Text>
               <FontAwesome5 name="paper-plane" size={20} color="#41C9E2" />
-            </View>
+            </Pressable>
           }
         />
         <View style={styles.form.container}>

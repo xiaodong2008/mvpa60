@@ -18,7 +18,7 @@ export default function Workout({ navigation }) {
       <Topbar title="Workout" />
       <View style={[theme.styles.pageContent, styles.container]}>
         <Text style={styles.title}>Workout</Text>
-        <View style={styles.flexBox}>
+        <View style={styles.flexBox.container}>
           <Text style={styles.flexBox.text}>Your progress:</Text>
           <Text style={styles.flexBox.redText}>263</Text>
           <Text style={styles.flexBox.text}>mins/week</Text>
@@ -27,7 +27,7 @@ export default function Workout({ navigation }) {
           <Text style={styles.flexBox.redText}>8</Text>
           <Text style={styles.flexBox.text}>weeks</Text>
         </View>
-        <View style={styles.flexBox}>
+        <View style={styles.flexBox.container}>
           <Text style={[styles.flexBox.block, styles.flexBox.active]}>All</Text>
           <Text style={styles.flexBox.block}>Endurance</Text>
           <Text style={styles.flexBox.block}>Strength</Text>
@@ -108,9 +108,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   flexBox: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
+    container: {
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+    },
     text: {
       fontSize: 13,
       fontWeight: "300",

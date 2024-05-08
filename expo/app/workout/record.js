@@ -77,11 +77,12 @@ export default function RecordPage({ navigation }) {
         <Text style={styles.subtitle}>Notes</Text>
         <TextInput
           style={theme.styles.input}
-          multiline={true}
+          // multiline={true}
           placeholder="Add some notes"
         />
         <Button
           top={20}
+          bottom={80}
           text="Record Workout"
           loading={loading}
           onPress={() => submit(setLoading, navigation)}

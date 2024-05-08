@@ -16,6 +16,7 @@ export default function Button(props) {
       height: 38,
       padding: 8,
       marginTop: props.top ? props.top : 0,
+      marginBottom: props.bottom ? props.bottom : 0,
       backgroundColor: props.disabled
         ? theme.color.gray
         : props.color
@@ -34,7 +35,7 @@ export default function Button(props) {
   });
 
   return (
-    <Pressable onPress={props.disabled || props.loading ? null : props.onPress}>
+    <Pressable onPress={props.disarbled || props.loading ? null : props.onPress}>
       <View style={styles.container}>
         {props.loading ? (
           <ActivityIndicator color="white" style={styles.button} />

@@ -13,6 +13,7 @@ import message from "../message";
 import theme from "../theme";
 import Button from "../components/button";
 import Input from "../components/login-input";
+import Background from "../components/background";
 
 export default function Page(props) {
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ export default function Page(props) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
+        <Background />
         <View style={styles.box}>
           <Text style={styles.form.title}>
             {mode === "register" ? "Hello!" : "Welcome\nBack!"}
