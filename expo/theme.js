@@ -10,6 +10,7 @@ export default {
   styles: {
     pageRoot: {
       position: "relative",
+      display: "flex",
       flex: 1,
       height: "100%",
     },

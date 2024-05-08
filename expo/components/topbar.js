@@ -1,12 +1,12 @@
 import { SafeAreaView, View, Text, StyleSheet, Pressable } from "react-native";
 
-import { FontAwesome5 } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Topbar(props) {
   const iconTemplate = {
     back: (
       <View style={templateStyles.back.container}>
-        <FontAwesome5 name="angle-left" size={26} color="#41C9E2" />
+        <AntDesign name="swapleft" size={26} color="#41C9E2" />
         <Text style={templateStyles.back.text}>Back</Text>
       </View>
     ),
@@ -33,7 +33,7 @@ const templateStyles = {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      gap: 6,
+      gap: 2,
     },
     text: {
       fontSize: 16,

@@ -14,7 +14,7 @@ import theme from "../../theme";
 
 export default function Page() {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={theme.styles.pageRoot}>
       <Stack.Navigator initialRouteName="Profile" screenOptions={theme.stack}>
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Settings" component={Setting} />

@@ -49,14 +49,14 @@ export default function Home({ navigation }) {
         title="Home"
         history={true}
         post={() => navigation.navigate("Post")}
-        leftIcon={
-          <FontAwesome5
-            name="history"
-            size={20}
-            color="#41C9E2"
-            style={styles.left}
-          />
-        }
+        // leftIcon={
+        //   <FontAwesome5
+        //     name="history"
+        //     size={20}
+        //     color="#41C9E2"
+        //     style={styles.left}
+        //   />
+        // }
         rightIcon={<Feather name="plus-circle" size={22} color="#41C9E2" />}
         rightPress={() => navigation.navigate("Post")}
       />

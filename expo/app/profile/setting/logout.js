@@ -17,7 +17,7 @@ export default function Delete({ navigation }) {
   const session = useContext(SessionContext);
 
   return (
-    <View>
+    <View style={theme.styles.pageRoot}>
       <Background />
       <Topbar title="Logout" />
       <View style={styles.container}>
@@ -57,6 +57,7 @@ export default function Delete({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    height: "100%",
   },
   text: {
     fontSize: 16,
