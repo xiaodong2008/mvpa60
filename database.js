@@ -13,5 +13,5 @@ export default createClient(
       persistSession: true,
       detectSessionInUrl: false,
     },
-  }
+  },
 );

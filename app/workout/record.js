@@ -6,7 +6,7 @@ import {
   TextInput,
   Image,
   ScrollView,
-  Platform
+  Platform,
 } from "react-native";
 
 import UploadImage from "./uploadImage";

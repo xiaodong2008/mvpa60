@@ -1,6 +1,6 @@
 import { SafeAreaView, View, Text, StyleSheet, Pressable } from "react-native";
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Topbar(props) {
   const iconTemplate = {

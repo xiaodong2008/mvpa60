@@ -1,4 +1,4 @@
-import 'react-native-reanimated';
+import "react-native-reanimated";
 import { Slot } from "expo-router";
 import React, { useEffect } from "react";
 import db from "../database";

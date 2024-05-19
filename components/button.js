@@ -35,7 +35,9 @@ export default function Button(props) {
   });
 
   return (
-    <Pressable onPress={props.disarbled || props.loading ? null : props.onPress}>
+    <Pressable
+      onPress={props.disarbled || props.loading ? null : props.onPress}
+    >
       <View style={styles.container}>
         {props.loading ? (
           <ActivityIndicator color="white" style={styles.button} />

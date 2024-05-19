@@ -1,6 +1,7 @@
 # MVPA60
 
 ## Dependencies
+
 - Node.js
 - Yarn
 - Expo
