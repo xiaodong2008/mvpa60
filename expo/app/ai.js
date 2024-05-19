@@ -1,28 +1,36 @@
 import {
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  StyleSheet,
-  ScrollView,
   Image,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
-import React from "react";
 
-import Topbar from "../components/topbar";
-import Banner from "../components/banner";
 import Background from "../components/background";
+import Banner from "../components/banner";
+import OpenAI from "openai";
+import React from "react";
+import Topbar from "../components/topbar";
 import theme from "../theme";
-
 import user from "../user";
+
+const openai = new OpenAI({
+  apiKey: "sk-Zyc5eQAdWoBaCWzr26F5653367F04e188131A942806d5032",
+  baseURL: "https://burn.hair/v1",
+});
 
 export default function Page() {
   const [avatarUri, setAvatarUri] = React.useState(null);
   const [input, setInput] = React.useState("");
   const [messages, setMessages] = React.useState([
-    { text: "Hello, how can I help you?", from: "ai" },
+    {
+      text: "Hello! I'm assistant of MVPA60 that help you keep healthy and fit. How can I help you today?",
+      from: "assistant",
+    },
   ]);
 
   React.useEffect(() => {
@@ -31,30 +39,33 @@ export default function Page() {
     });
   });
 
-  function sendMsg() {
-    const msg = { text: input, from: "user" };
+  async function sendMsg() {
     setInput("");
-    messages.push(msg);
+    messages.push({ text: input, from: "user" });
     messages.push({
       text: "|",
-      from: "ai",
+      from: "assistant",
     });
-    const fakeReply =
-      "MVPA60 aims to encourage students to develop a habit of regularly taking part in physical activities as early as possible in order to achieve the World Health Organisation (WHO)’s recommendation that children and adolescents aged 5-17 should accumulate at least an average of 60 minutes daily of moderate-to vigorous-intensity physical activities across the week.";
-    let i = 0;
-    setTimeout(() => {
-      const val = setInterval(() => {
-        messages.pop();
-        messages.push({
-          text: fakeReply.slice(0, i) + (i === fakeReply.length ? "" : "|"),
-          from: "ai",
-        });
-        setMessages([...messages]);
-        if (i++ === fakeReply.length) {
-          clearInterval(val);
-        }
-      }, 5);
-    }, 500);
+    const res = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: messages.map((msg) => ({
+        role: msg.from,
+        content: msg.text,
+      })),
+    });
+    const reply = res.choices[0].message.content;
+    let content = "",
+      key = 0;
+    const output = setInterval(() => {
+      if (key < reply.length) {
+        content += reply[key++];
+        messages[messages.length - 1].text = content + "|";
+      } else {
+        messages[messages.length - 1].text = content;
+        clearInterval(output);
+      }
+      setMessages([...messages]);
+    }, 10);
   }
 
   return (
@@ -70,7 +81,7 @@ export default function Page() {
               <View key={i} style={styles.main.msg.container}>
                 <Image
                   source={
-                    msg.from === "ai"
+                    msg.from === "assistant"
                       ? require("../assets/openai.png")
                       : !avatarUri
                         ? require("../assets/default-avatar.png")
