@@ -1,15 +1,14 @@
-import { Text, View, StyleSheet } from "react-native";
-import { SessionContext } from "../_layout";
-import { useContext } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import theme from "../../theme";
+import { StyleSheet, Text, View } from "react-native";
 
-import Topbar from "../../components/topbar";
-import Banner from "../../components/banner";
 import Avatar from "./avatar";
-import Statistic from "./statistic";
-
 import Background from "../../components/background";
+import Banner from "../../components/banner";
+import { Ionicons } from "@expo/vector-icons";
+import { SessionContext } from "../_layout";
+import Statistic from "./statistic";
+import Topbar from "../../components/topbar";
+import theme from "../../theme";
+import { useContext } from "react";
 
 export default function Profile({ navigation }) {
   const session = useContext(SessionContext);

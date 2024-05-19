@@ -1,9 +1,8 @@
-import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
-
-import theme from "../../theme";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import Overview from "./overview";
+import React from "react";
+import theme from "../../theme";
 
 export default function Statistic() {
   const [scope, setScope] = React.useState(1);
