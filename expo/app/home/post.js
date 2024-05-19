@@ -1,29 +1,54 @@
 import {
-  TextInput,
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
   Keyboard,
-  TouchableWithoutFeedback,
   Pressable,
+  ScrollView,
+  StyleSheet,
+  Switch,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
-import React from "react";
-
-import Topbar from "../../components/topbar";
-import { FontAwesome5 } from "@expo/vector-icons";
-import theme from "../../theme";
 
 import Background from "../../components/background";
+import { FontAwesome5 } from "@expo/vector-icons";
+import React from "react";
+import { SessionContext } from "../_layout";
+import Topbar from "../../components/topbar";
+import database from "../../database";
 import message from "../../message";
+import theme from "../../theme";
 
 export default function Post({ navigation }) {
-  const submit = () => {
-    setTimeout(() => {
-      navigation.goBack();
-      message.success("Post published");
-    }, 1000)
-  }
+  const session = React.useContext(SessionContext);
+  const [title, setTitle] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [isPrivate, setIsPrivate] = React.useState(false);
+
+  const submit = async () => {
+    if (!title || !description) {
+      message.error("Please fill in all fields");
+      return;
+    }
+
+    const { error } = await database.from("post").insert({
+      data: {
+        title,
+        description,
+      },
+      private: isPrivate,
+      user_id: session.user.id,
+    });
+
+    if (error) {
+      message.error("Failed to publish post");
+      console.error(error);
+      return;
+    }
+
+    message.success("Post published successfully");
+    navigation.goBack();
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -41,14 +66,31 @@ export default function Post({ navigation }) {
           }
         />
         <View style={styles.form.container}>
-          <TextInput style={styles.form.title} placeholder="Post Title" />
+          <TextInput
+            style={styles.form.title}
+            value={title}
+            onChangeText={setTitle}
+            placeholder="Post Title"
+          />
           <ScrollView style={{ height: 200 }}>
             <TextInput
               style={styles.form.description}
               placeholder="Post Description"
+              value={description}
+              onChangeText={setDescription}
               multiline
             />
           </ScrollView>
+          <View style={styles.form.options}>
+            <Text>Private</Text>
+            <Switch
+              value={isPrivate}
+              onValueChange={setIsPrivate}
+              trackColor={{ false: "#767577", true: "#81b0ff" }}
+              thumbColor={isPrivate ? "#f5dd4b" : "#f4f3f4"}
+              ios_backgroundColor="#3e3e3e"
+            />
+          </View>
           <Text style={styles.form.info}>
             This post will publish immediately
           </Text>
@@ -103,6 +145,13 @@ const styles = StyleSheet.create({
       margin: "auto",
       textAlign: "center",
       color: theme.color.gray,
+    },
+    options: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginVertical: 10,
     },
   },
 });
