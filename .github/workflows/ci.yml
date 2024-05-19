@@ -22,7 +22,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm i
+        run: npm i prettier
 
       - name: Run format check
         run: npm run format
