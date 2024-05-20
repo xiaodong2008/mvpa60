@@ -1134,7 +1134,7 @@
   dependencies:
     cross-spawn "^7.0.3"
 
-"@expo/vector-icons@^14.0.0", "@expo/vector-icons@^14.0.1":
+"@expo/vector-icons@^14.0.0", "@expo/vector-icons@^14.0.2":
   version "14.0.2"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-14.0.2.tgz#f7f6c4cb5ef356d1171d2b4e059217556738fd3b"
   integrity sha512-70LpmXQu4xa8cMxjp1fydgRPsalefnHaXLzIwaHMEzcZhnyjw2acZz8azRrZOslPVAWlxItOa2Dd7WtD/kI+CA==
@@ -1284,7 +1284,7 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@marsidev/react-turnstile@^0.6.0":
+"@marsidev/react-turnstile@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@marsidev/react-turnstile/-/react-turnstile-0.6.1.tgz#7a90424d79066ad15f654ab4b61f1803328311d1"
   integrity sha512-xsWFqmdccmZ09MX72t2cppQJlxeBH8kdiZNLpYRBHMbKgXhU0ucOCnaOsM0eXv65ripeXiXQcfxu78QIKklRGA==
@@ -1879,7 +1879,7 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/supabase-js@^2.43.1":
+"@supabase/supabase-js@^2.43.2":
   version "2.43.2"
   resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.43.2.tgz#86ee9379d4441c2773b1a84919770ac704c5cfb4"
   integrity sha512-F9CljeJBo5aPucNhrLoMnpEHi5yqNZ0vH0/CL4mGy+/Ggr7FUrYErVJisa1NptViqyhs1HGNzzwjOYG6626h8g==
@@ -2266,10 +2266,10 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
-axios@^1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
-  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+axios@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.0.tgz#b48f715325457ededfcb3f0a44a3fb9d5742acb6"
+  integrity sha512-IiB0wQeKyPRdsFVhBgIo31FbzOyf2M6wYl7/NVutFwFBRMiAbjNiydJIHKeLmPugF4kJLfA1uWZ82Is2QzqqFA==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -3306,7 +3306,7 @@ expo-image-loader@~4.7.0:
   resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-4.7.0.tgz#d403106822de80bda12d644c82b7a3b7983c0f0b"
   integrity sha512-cx+MxxsAMGl9AiWnQUzrkJMJH4eNOGlu7XkLGnAXSJrRoIiciGaKqzeaD326IyCTV+Z1fXvIliSgNW+DscvD8g==
 
-expo-image-picker@~15.0.4:
+expo-image-picker@~15.0.5:
   version "15.0.5"
   resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-15.0.5.tgz#8a3d4c3ecdb5bcf58f09e024597dd69edf7baa9c"
   integrity sha512-Qqp16udsadx/YpNcNaWzfbmO0tbMxyX9bS1aFiDVC+Zffh8LY8S4HJJcnWqSC2TeuAl+9SxUwTloJagvPeMBBw==
@@ -3349,7 +3349,7 @@ expo-modules-core@1.12.11:
   dependencies:
     invariant "^2.2.4"
 
-expo-router@~3.5.10:
+expo-router@~3.5.14:
   version "3.5.14"
   resolved "https://registry.yarnpkg.com/expo-router/-/expo-router-3.5.14.tgz#5ca0e861271fa716b94a6149d696f7ac1258aad4"
   integrity sha512-RVsyJLosZSq89ebA5qfPToRcFZJoTTb+6nwPHk6iESD6KON/Q7ZODt5fvCwXkY86tLNEMGo160QvBPfBZmglaA==
@@ -3376,7 +3376,7 @@ expo-status-bar@~1.12.1:
   resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.12.1.tgz#52ce594aab5064a0511d14375364d718ab78aa66"
   integrity sha512-/t3xdbS8KB0prj5KG5w7z+wZPFlPtkgs95BsmrP/E7Q0xHXTcDcQ6Cu2FkFuRM+PKTb17cJDnLkawyS5vDLxMA==
 
-expo@^51.0.0:
+expo@^51.0.8:
   version "51.0.8"
   resolved "https://registry.yarnpkg.com/expo/-/expo-51.0.8.tgz#a7981e86ee20eac4b847c7c8cc5799d9c6b1508d"
   integrity sha512-bdTOiMb1f3PChtuqEZ9czUm2gMTmS0r1+H+Pkm2O3PsuLnOgxfIBzL6S37+J4cUocLBaENrmx9SOGKpzhBqXpg==
@@ -5793,10 +5793,10 @@ react-native-maps@^1.15.1:
   dependencies:
     "@types/geojson" "^7946.0.13"
 
-react-native-reanimated@3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.10.0.tgz#7367f0ae9c79193315f4f1ef4d359bfac678a761"
-  integrity sha512-oiQiO+iJ8HTXTli94+Cl5R7nd+TzZf+3MYnMKWtnVDDCxFsqBgpkKO2Xp2ZhZyseXY/JDdH0//E7LlPQRRxpXg==
+react-native-reanimated@3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.11.0.tgz#d4265d4e0232623f5958ed60e1686ca884fc3452"
+  integrity sha512-BNw/XDgUfs8UhfY1X6IniU8kWpnotWGyt8qmQviaHisTi5lvwnaOdXQKfN1KGONx6ekdFRHRP5EFwLi0UajwKA==
   dependencies:
     "@babel/plugin-transform-arrow-functions" "^7.0.0-0"
     "@babel/plugin-transform-nullish-coalescing-operator" "^7.0.0-0"
@@ -5841,7 +5841,7 @@ react-native-web@~0.19.11:
     postcss-value-parser "^4.2.0"
     styleq "^0.1.3"
 
-react-native-webview@^13.10.0:
+react-native-webview@^13.10.2:
   version "13.10.2"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.10.2.tgz#0f9b84ab38cca022d5b1c4e77c100f4d9591e7af"
   integrity sha512-rjrTuPBtpHbI3owoyvSR+bRJqHfsdo5V3nVfU+G65CotkSLewEcGfA9cq7Qv3nzm5t0KEDIt0G/n7hQFjsXihQ==
