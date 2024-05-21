@@ -1,10 +1,7 @@
 import { getStorage, setStorage } from "./storage";
+
 import db from "./database";
 import { router } from "expo-router";
-
-async function isLogin() {
-  const session = db.auth.getUser();
-}
 
 async function register(email, password) {
   console.log("register");
