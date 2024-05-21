@@ -1834,6 +1834,19 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@slidev/parser@^0.47.4":
+  version "0.47.5"
+  resolved "https://registry.yarnpkg.com/@slidev/parser/-/parser-0.47.5.tgz#55b77d43e169d9536aaec821b3198d26ad8758fd"
+  integrity sha512-KvqOEhIFuMDu8CjAsehMNKlAnnmAn2TRHiEymc3CMadid05oWa5zgTxqEyMxUl2rjWpYs3A1yDiendZsGYs3HA==
+  dependencies:
+    "@slidev/types" "0.47.5"
+    js-yaml "^4.1.0"
+
+"@slidev/types@0.47.5":
+  version "0.47.5"
+  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.47.5.tgz#53715dfabf25aa54893dfaa8de5d67027bdd6370"
+  integrity sha512-X67V4cCgM0Sz50bP8GbVzmiL8DHC2IXvdKcsN7DlxHyf+/T4d9GveeGukwha5Fx3MuYeGZWKag7TFL2ZY4w54A==
+
 "@supabase/auth-js@2.64.2":
   version "2.64.2"
   resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.64.2.tgz#fe6828ed2c9844bf2e71b27f88ddfb635f24d1c1"
@@ -5582,6 +5595,13 @@ postcss@~8.4.32:
     nanoid "^3.3.7"
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
+
+prettier-plugin-slidev@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-slidev/-/prettier-plugin-slidev-1.0.5.tgz#4d9583903e63ba8c9b0e677003ea5ea562ffeeb5"
+  integrity sha512-1xaKzOAX17QAcn1roUgQIAfeio3HPYYefCgzxh6Bzk+5rJJxq0I8HUhLrUyv9nCpIP6e9CDv/yDQSdEeqqRUuA==
+  dependencies:
+    "@slidev/parser" "^0.47.4"
 
 prettier@^3.2.5:
   version "3.2.5"
