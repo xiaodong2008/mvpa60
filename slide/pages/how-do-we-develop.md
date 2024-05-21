@@ -6,7 +6,7 @@ transition: fade-out
 
 This project is fully open source, all the code is available on GitHub. [View on GitHub >](https://github.com/xiaodong2008/mvpa60)
 
-<v-clicks>
+<v-clicks depth="2">
 
 - We use React Native to build the app and Expo for the development environment.
 - Supabase is a database service base on Postgres, and it's also open source!
