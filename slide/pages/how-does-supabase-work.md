@@ -9,27 +9,21 @@ Someone may ask, why can we remove the backend server, won't it be less secure?
 Let's take a look at the code.
 
 ````md magic-move
-
 ```js
 // database.js
 ```
 
 ```js
 // database.js
-export default createClient(
-  "service url",
-  "local token",
-  {
-    auth: {
-      storage: AsyncStorage,
-      autoRefreshToken: true,
-      persistSession: true,
-      detectSessionInUrl: false,
-    },
+export default createClient("service url", "local token", {
+  auth: {
+    storage: AsyncStorage,
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
   },
-);
+});
 ```
-
 ````
 
 <style>
@@ -53,7 +47,7 @@ import db from "./database";
 import db from "./database";
 
 async function register(email, password) {
-  const { data, error} = await db.auth.signUp({
+  const { data, error } = await db.auth.signUp({
     email,
     password,
   });
@@ -72,8 +66,7 @@ import message from "../../message";
 import database from "../../database";
 import message from "../../message";
 
-async function createPost(title, content) {
-}
+async function createPost(title, content) {}
 ```
 
 ```js
@@ -93,7 +86,6 @@ async function createPost(title, content) {
   navigation.goBack();
 }
 ```
-
 
 ```js
 // post.js

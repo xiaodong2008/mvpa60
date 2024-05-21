@@ -68,7 +68,7 @@ create table
     private boolean not null default true,
     user_id uuid null default auth.uid()
   ) tablespace pg_default;
-  
+
 alter policy "Enable insert for authenticated users only" on "public"."post"
   for insert
   to authenticated with check (true);
