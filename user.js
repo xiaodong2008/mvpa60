@@ -35,7 +35,6 @@ async function setAvatar(base64) {
 }
 
 export default {
-  isLogin,
   register,
   login,
   logout,
