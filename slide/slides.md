@@ -46,3 +46,7 @@ src: pages/how-does-supabase-work.md
 ---
 src: pages/how-does-rls-protect-users-data.md
 ---
+
+---
+src: pages/end.md
+---
