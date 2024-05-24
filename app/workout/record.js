@@ -13,17 +13,16 @@ import Button from "../../components/button";
 import React from "react";
 import Topbar from "../../components/topbar";
 import { date } from "jsfast";
-import message from "../../message";
 import theme from "../../theme";
 
 let endAt = null;
-let totalTime = 0;
 let updateInterval = null;
 
 export default function RecordPage({ navigation }) {
   const [status, setStatus] = React.useState(0);
   const [timer, setTimer] = React.useState("00:00:00");
   const [lastStop, setLastStop] = React.useState(null);
+  const [totalTime, setTotalTime] = React.useState(0);
 
   return (
     <View style={theme.styles.pageRoot}>
@@ -71,7 +70,7 @@ export default function RecordPage({ navigation }) {
     } else {
       endAt = Date.now();
       clearInterval(updateInterval);
-      totalTime += Date.now() - lastStop;
+      setTotalTime(totalTime + Date.now() - lastStop);
     }
   }
 
