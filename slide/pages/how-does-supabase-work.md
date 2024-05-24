@@ -15,7 +15,8 @@ Let's take a look at the code.
 
 ```js
 // database.js
-export default createClient("service url", "local token", {
+// createClient: api provided by supabase
+export default createClient("service url", "token", {
   auth: {
     storage: AsyncStorage,
     autoRefreshToken: true,
@@ -52,63 +53,6 @@ async function register(email, password) {
     password,
   });
   if (error) console.log(error);
-}
-```
-
-```js
-// post.js
-import database from "../../database";
-import message from "../../message";
-```
-
-```js
-// post.js
-import database from "../../database";
-import message from "../../message";
-
-async function createPost(title, content) {}
-```
-
-```js
-// post.js
-import database from "../../database";
-import message from "../../message";
-
-async function createPost(title, content) {
-  const { error } = await database.from("posts").insert();
-
-  if (error) {
-    message.error("Failed to publish post");
-    return console.error(error);
-  }
-
-  message.success("Post published successfully");
-  navigation.goBack();
-}
-```
-
-```js
-// post.js
-import database from "../../database";
-import message from "../../message";
-
-async function createPost(title, content) {
-  const { error } = await database.from("posts").insert({
-    data: {
-      title,
-      description,
-    },
-    private: isPrivate,
-    user_id: session.user.id,
-  });
-
-  if (error) {
-    message.error("Failed to publish post");
-    return console.error(error);
-  }
-
-  message.success("Post published successfully");
-  navigation.goBack();
 }
 ```
 ````
