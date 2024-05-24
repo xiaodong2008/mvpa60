@@ -108,7 +108,7 @@ export default function RecordPage({ route, navigation }) {
       return;
     }
     let key = 0;
-    for (let image of uploadImages) {=
+    for (let image of uploadImages) {
       const { error } = await db.storage
         .from("workout")
         .upload(
