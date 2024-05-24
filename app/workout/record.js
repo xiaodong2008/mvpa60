@@ -37,7 +37,13 @@ export default function RecordPage({ navigation }) {
         </View>
         <Button
           top={20}
-          text={status == 2 ? "Stop Record" : "Start Record"}
+          text={
+            status == 2
+              ? "Stop Record"
+              : status == 1
+                ? "Resume Record"
+                : "Start Record"
+          }
           color={status == 2 ? "red" : "#99ee00"}
           onPress={() => updateStatus(status, setStatus)}
         />
