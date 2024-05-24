@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useContext, useState } from "react";
-import message from "../../../message";
-import { SessionContext } from "../../_layout";
-import db from "../../../database";
-
-import Topbar from "../../../components/topbar";
-import { router } from "expo-router";
-import Button from "../../../components/button";
-import theme from "../../../theme";
 
 import Background from "../../../components/background";
+import Button from "../../../components/button";
+import { SessionContext } from "../../_layout";
+import Topbar from "../../../components/topbar";
+import db from "../../../database";
+import message from "../../../message";
+import { router } from "expo-router";
+import theme from "../../../theme";
 
 export default function Delete({ navigation }) {
   const [loading, setLoading] = useState(false);

@@ -1,14 +1,13 @@
 import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";
 import { useContext, useState } from "react";
-import message from "../../../message";
-import { SessionContext } from "../../_layout";
-import db from "../../../database";
-
-import Topbar from "../../../components/topbar";
-import Button from "../../../components/button";
-import Input from "../../../components/input";
 
 import Background from "../../../components/background";
+import Button from "../../../components/button";
+import Input from "../../../components/input";
+import { SessionContext } from "../../_layout";
+import Topbar from "../../../components/topbar";
+import db from "../../../database";
+import message from "../../../message";
 
 export default function Nickname({ navigation }) {
   const [nickname, setNickname] = useState("");

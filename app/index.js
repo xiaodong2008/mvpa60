@@ -1,10 +1,9 @@
-import { View } from "react-native";
-import theme from "../theme";
-
 import Login from "./login";
 import Main from "./home/index";
-
+import { View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import theme from "../theme";
+
 const Stack = createNativeStackNavigator();
 
 export default function Page() {

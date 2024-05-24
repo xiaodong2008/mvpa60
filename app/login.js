@@ -1,19 +1,19 @@
 import {
-  Text,
-  StyleSheet,
-  View,
   Keyboard,
+  StyleSheet,
+  Text,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import React, { useState } from "react";
-import { LinearGradient } from "expo-linear-gradient";
-import user from "../user";
-import message from "../message";
 
-import theme from "../theme";
+import Background from "../components/background";
 import Button from "../components/button";
 import Input from "../components/login-input";
-import Background from "../components/background";
+import { LinearGradient } from "expo-linear-gradient";
+import message from "../message";
+import theme from "../theme";
+import user from "../user";
 
 export default function Page(props) {
   const [email, setEmail] = useState("");

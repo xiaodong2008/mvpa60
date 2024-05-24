@@ -1,16 +1,14 @@
-import { View } from "react-native";
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-const Stack = createNativeStackNavigator();
-
-import Profile from "./main";
-import Setting from "./setting/main";
+import Delete from "./setting/delete";
+import Logout from "./setting/logout";
 import Nickname from "./setting/nickname";
 import Password from "./setting/password";
-import Logout from "./setting/logout";
-import Delete from "./setting/delete";
-
+import Profile from "./main";
+import Setting from "./setting/main";
+import { View } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import theme from "../../theme";
+
+const Stack = createNativeStackNavigator();
 
 export default function Page() {
   return (

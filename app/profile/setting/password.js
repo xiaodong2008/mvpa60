@@ -1,15 +1,12 @@
 import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";
-import { useState } from "react";
-
-import Topbar from "../../../components/topbar";
-import Button from "../../../components/button";
-import Input from "../../../components/input";
 
 import Background from "../../../components/background";
-
+import Button from "../../../components/button";
+import Input from "../../../components/input";
+import Topbar from "../../../components/topbar";
 import db from "../../../database";
-
 import { showMessage } from "react-native-flash-message";
+import { useState } from "react";
 
 export default function Password({ navigation }) {
   const [password, setPassword] = useState("");

@@ -1,11 +1,12 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useContext, useEffect } from "react";
-import { SessionContext } from "../_layout";
-import { View } from "react-native";
-import theme from "../../theme";
 
 import Main from "./main";
 import Post from "./post";
+import { SessionContext } from "../_layout";
+import { View } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import theme from "../../theme";
+
 const Stack = createNativeStackNavigator();
 
 export default function Page({ navigation }) {

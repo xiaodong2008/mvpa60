@@ -1,10 +1,11 @@
 import "react-native-reanimated";
-import { Slot } from "expo-router";
+
+import { Image, StyleSheet, View } from "react-native";
 import React, { useEffect } from "react";
-import db from "../database";
-import { View, StyleSheet, Image } from "react-native";
 
 import FlashMessage from "react-native-flash-message";
+import { Slot } from "expo-router";
+import db from "../database";
 import message from "../message";
 
 export const SessionContext = React.createContext();

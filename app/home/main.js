@@ -1,15 +1,14 @@
-import Card from "../../components/card";
 import { Feather, FontAwesome5 } from "@expo/vector-icons";
-import { ScrollView, View, Image, Text } from "react-native";
-import { useContext } from "react";
-import { SessionContext } from "../_layout";
-import { router } from "expo-router";
+import { Image, ScrollView, Text, View } from "react-native";
 
-import Topbar from "../../components/topbar";
-import Banner from "../../components/banner";
 import Background from "../../components/background";
-
+import Banner from "../../components/banner";
+import Card from "../../components/card";
+import { SessionContext } from "../_layout";
+import Topbar from "../../components/topbar";
+import { router } from "expo-router";
 import theme from "../../theme";
+import { useContext } from "react";
 
 export default function Home({ navigation }) {
   const session = useContext(SessionContext);

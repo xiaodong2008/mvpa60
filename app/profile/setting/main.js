@@ -1,15 +1,13 @@
 import { ScrollView, Text, View } from "react-native";
-import { useContext } from "react";
-
-import { SessionContext } from "../../_layout";
-
-import Topbar from "../../../components/topbar";
-import Select from "../../../components/select";
-import Blank from "../../../components/blank";
-import Banner from "../../../components/banner";
-import theme from "../../../theme";
 
 import Background from "../../../components/background";
+import Banner from "../../../components/banner";
+import Blank from "../../../components/blank";
+import Select from "../../../components/select";
+import { SessionContext } from "../../_layout";
+import Topbar from "../../../components/topbar";
+import theme from "../../../theme";
+import { useContext } from "react";
 
 export default function Setting({ navigation }) {
   const session = useContext(SessionContext);

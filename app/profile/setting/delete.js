@@ -1,13 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import db from "../../../database";
-
-import Topbar from "../../../components/topbar";
-import { router } from "expo-router";
-import Button from "../../../components/button";
-import theme from "../../../theme";
-
 import Background from "../../../components/background";
+import Button from "../../../components/button";
+import Topbar from "../../../components/topbar";
+import db from "../../../database";
+import { router } from "expo-router";
+import theme from "../../../theme";
 
 export default function Delete({ navigation }) {
   return (

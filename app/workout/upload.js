@@ -108,8 +108,7 @@ export default function RecordPage({ route, navigation }) {
       return;
     }
     let key = 0;
-    for (let image of uploadImages) {
-      console.log(image);
+    for (let image of uploadImages) {=
       const { error } = await db.storage
         .from("workout")
         .upload(
@@ -124,15 +123,6 @@ export default function RecordPage({ route, navigation }) {
         message.error("Failed to save image");
       }
     }
-    console.log({
-      start_at: route.params.start,
-      end_at: route.params.end,
-      info: {
-        type: type,
-        time: route.params.time,
-        note: note,
-      },
-    });
     const { error } = await db.from("record").insert({
       create_at: new Date().toISOString(),
       // start_at: route.params.start,
@@ -160,7 +150,6 @@ export default function RecordPage({ route, navigation }) {
 }
 
 function upload(image, set) {
-  console.log("Uploading", image);
   set((prev) => [...prev, image]);
 }
 

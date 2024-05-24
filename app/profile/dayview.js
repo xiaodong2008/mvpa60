@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+
 import { FontAwesome6 } from "@expo/vector-icons";
 import theme from "../../theme";
 

@@ -1,21 +1,21 @@
-import {
-  View,
-  Image,
-  StyleSheet,
-  Pressable,
-  ActivityIndicator,
-} from "react-native";
-
 import * as ImagePicker from "expo-image-picker";
-import { useContext, useState, useEffect } from "react";
-import { SessionContext } from "../_layout";
-import message from "../../message";
-import theme from "../../theme";
 
-import { decode } from "base64-arraybuffer";
+import {
+  ActivityIndicator,
+  Image,
+  Pressable,
+  StyleSheet,
+  View,
+} from "react-native";
+import { useContext, useEffect, useState } from "react";
+
 import { Buffer } from "buffer";
+import { SessionContext } from "../_layout";
 import axios from "axios";
 import db from "../../database";
+import { decode } from "base64-arraybuffer";
+import message from "../../message";
+import theme from "../../theme";
 import user from "../../user";
 
 export default function Avatar() {
