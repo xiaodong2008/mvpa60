@@ -1,11 +1,11 @@
-import { Image, Pressable, View, StyleSheet } from "react-native";
-
 import * as ImagePicker from "expo-image-picker";
+
+import { Image, Pressable, StyleSheet, View } from "react-native";
+
+import { AntDesign } from "@expo/vector-icons";
 import { Buffer } from "buffer";
 import axios from "axios";
 import theme from "../../theme";
-
-import { AntDesign } from "@expo/vector-icons";
 
 export default function UploadImage({ callback }) {
   return (
@@ -26,11 +26,12 @@ async function pickImage(callback) {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     quality: 1,
+    base64: true,
   });
 
   if (!result.canceled) {
     console.log("Image picked");
-    callback(result.assets[0].uri);
+    callback([result.assets[0].uri, result.assets[0].base64]);
   }
 }
 
